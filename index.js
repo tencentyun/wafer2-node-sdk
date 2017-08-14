@@ -41,12 +41,16 @@ const { ERRORS } = require('./lib/constants')
  */
 module.exports = function init (options) {
     // 检查配置项
-    const { useQcloudLogin, mysql, cos, serverHost, tunnelServerUrl, tunnelSignatureKey, qcloudAppId, qcloudSecretId, qcloudSecretKey, wxMessageToken } = options
-    if ([useQcloudLogin, mysql, cos, serverHost, tunnelServerUrl, tunnelSignatureKey, qcloudAppId, qcloudSecretId, qcloudSecretKey, wxMessageToken].some(v => v === undefined)) throw new Error(ERRORS.ERR_INIT_SDK_LOST_CONFIG)
+    const { useQcloudLogin, cos, serverHost, tunnelServerUrl, tunnelSignatureKey, qcloudAppId, qcloudSecretId, qcloudSecretKey, wxMessageToken } = options
+    if ([useQcloudLogin, cos, serverHost, tunnelServerUrl, tunnelSignatureKey, qcloudAppId, qcloudSecretId, qcloudSecretKey, wxMessageToken].some(v => v === undefined)) throw new Error(ERRORS.ERR_INIT_SDK_LOST_CONFIG)
 
-    const { host, port, user, db, pass } = mysql
     const { region, fileBucket, uploadFolder } = cos
-    if ([host, port, user, db, pass, region, fileBucket, uploadFolder].some(v => v === undefined)) throw new Error(ERRORS.ERR_INIT_SDK_LOST_CONFIG)
+    if ([region, fileBucket, uploadFolder].some(v => v === undefined)) throw new Error(ERRORS.ERR_INIT_SDK_LOST_CONFIG)
+
+    if (options.mysql) {
+        const { host, port, user, db, pass } = options.mysql
+        if ([host, port, user, db, pass].some(v => v === undefined)) throw new Error(ERRORS.ERR_INIT_SDK_LOST_CONFIG)
+    }
 
     // 初始化配置
     const configs = config.set(options)
