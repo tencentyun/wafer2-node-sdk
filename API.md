@@ -21,7 +21,7 @@ const qcloud = require('qcloud-weapp-server-sdk')(options)
   - `host` - 必填。MySQL 主机名
   - `user` - 必填。MySQL 用户名
   - `db` - 必填。MySQL 数据库名
-  - `pass` - 必填。MySQL 密码
+  - `pass` - 必填。MySQL 密码，若使用了腾讯云微信小程序解决方案，开发环境下，MySQL 的初始密码为您的微信小程序 appid
   - `port` - 选填。MySQL 端口（默认：3306）
   - `char` - 选填。MySQL 编码
 - `cos` - 必填。腾讯云对象存储配置信息，用于上传模块使用。
