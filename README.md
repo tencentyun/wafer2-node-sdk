@@ -15,7 +15,7 @@ Wafer 服务端 SDK 是腾讯云为微信小程序开发者提供的快速开发
 ## 安装
 
 ```bash
-npm install qcloud-weapp-server-sdk --save
+npm install wafer-node-sdk --save
 ```
 
 ## 配置
