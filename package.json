@@ -1,7 +1,7 @@
 {
-  "name": "qcloud-weapp-server-sdk",
-  "version": "2.0.0",
-  "description": "Wafer 服务端 SDK - Node.js",
+  "name": "wafer-node-sdk",
+  "version": "1.0.0",
+  "description": "Wafer SDK for Node.js",
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec --ignore-leaks --bail --slow 1000 --recursive test"
