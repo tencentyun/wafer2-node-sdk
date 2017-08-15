@@ -8,6 +8,8 @@ const { ERRORS } = require('./lib/constants')
  * SDK 所有支持的配置项
  * @param {object} [必须] configs                    配置信息
 
+ * @param {object} [必须] configs.rootPathname       程序运行对应的根路径
+
  * @param {string} [可选] configs.appId              微信小程序 App ID
  * @param {string} [可选] configs.appSecret          微信小程序 App Secret
  * @param {boolean}[必须] configs.useQcloudLogin     是否腾讯云代理登录
@@ -41,8 +43,8 @@ const { ERRORS } = require('./lib/constants')
  */
 module.exports = function init (options) {
     // 检查配置项
-    const { useQcloudLogin, cos, serverHost, tunnelServerUrl, tunnelSignatureKey, qcloudAppId, qcloudSecretId, qcloudSecretKey, wxMessageToken } = options
-    if ([useQcloudLogin, cos, serverHost, tunnelServerUrl, tunnelSignatureKey, qcloudAppId, qcloudSecretId, qcloudSecretKey, wxMessageToken].some(v => v === undefined)) throw new Error(ERRORS.ERR_INIT_SDK_LOST_CONFIG)
+    const { rootPathname, useQcloudLogin, cos, serverHost, tunnelServerUrl, tunnelSignatureKey, qcloudAppId, qcloudSecretId, qcloudSecretKey, wxMessageToken } = options
+    if ([rootPathname, useQcloudLogin, cos, serverHost, tunnelServerUrl, tunnelSignatureKey, qcloudAppId, qcloudSecretId, qcloudSecretKey, wxMessageToken].some(v => v === undefined)) throw new Error(ERRORS.ERR_INIT_SDK_LOST_CONFIG)
 
     const { region, fileBucket, uploadFolder } = cos
     if ([region, fileBucket, uploadFolder].some(v => v === undefined)) throw new Error(ERRORS.ERR_INIT_SDK_LOST_CONFIG)
