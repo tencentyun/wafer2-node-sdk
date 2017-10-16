@@ -39,7 +39,7 @@ const qcloud = require('qcloud-weapp-server-sdk')(options)
 - `wxMessageToken` - 必填。微信客服消息通知 token
 - `wxLoginExpires` - 可选。微信登录态有效期，默认 7200 秒（单位：秒）
 
-**如果购买了腾讯云小程序解决方案，配置项中 `serverHost`, `tunnelServerUrl`, `tunnelSignatureKey`, `qcloudAppId`, `qcloudSecretId`, `qcloudSecretKey`, `wxMessageToken` 由腾讯云自动下发到您的服务器上。**
+**如果购买了腾讯云小程序解决方案，配置项中 `serverHost`, `tunnelServerUrl`, `tunnelSignatureKey`, `qcloudAppId`, `qcloudSecretId`, `qcloudSecretKey`, `wxMessageToken` 由腾讯云自动下发到您的开发环境和生产环境上。**
 
 自动下发的 SDK 配置文件地址： `/data/release/sdk.config.json`
 
