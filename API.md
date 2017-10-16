@@ -17,7 +17,7 @@ const qcloud = require('qcloud-weapp-server-sdk')(options)
 - `appId` - 可选。微信小程序的 App id
 - `appSecret` - 可选。微信小程序的 App secret
 - `useQcloudLogin` - 必填。是否使用腾讯云代理登录小程序。会话登录需要使用小程序的 App id 和 App secret 来解密用户信息，腾讯云提供使用腾讯云 App id 和 App secret 代理请求微信进行解密。如果该项为 `false`，则需填写微信小程序 App id 和 App secret。默认为 `true`
-- `mysql` - 选填。MySQL 配置。不填则使用小程序解决方案分配机器中默认的 MySQL，若使用自行部署的 MySQL 数据库，则需提供一个类型为 `object`  的配置，具体配置项如下：
+- `mysql` - 必填。MySQL 配置。不填则使用小程序解决方案分配机器中默认的 MySQL，若使用自行部署的 MySQL 数据库，则需提供一个类型为 `object`  的配置，具体配置项如下：
   - `host` - 必填。MySQL 主机名
   - `user` - 必填。MySQL 用户名
   - `db` - 必填。MySQL 数据库名
@@ -41,7 +41,7 @@ const qcloud = require('qcloud-weapp-server-sdk')(options)
 
 **如果购买了腾讯云小程序解决方案，配置项中 `serverHost`, `tunnelServerUrl`, `tunnelSignatureKey`, `qcloudAppId`, `qcloudSecretId`, `qcloudSecretKey`, `wxMessageToken` 由腾讯云自动下发到您的服务器上。**
 
-自动下发的 SDK 配置文件地址： `/etc/qcloud/sdk.config`
+自动下发的 SDK 配置文件地址： `/data/release/sdk.config.json`
 
 ##### 返回值
 
