@@ -3,12 +3,12 @@
 ## 命名空间
 
 ```js
-const qcloud = require('qcloud-weapp-server-sdk')(options)
+const qcloud = require('wafer-node-sdk')(options)
 ```
 
 ## SDK 初始化配置
 
-### require('qcloud-weapp-server-sdk')(options)
+### require('wafer-node-sdk')(options)
 
 该方法用于初始化 SDK 需要使用的各种配置项，需先于其他 API 调用。
 
