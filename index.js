@@ -65,6 +65,7 @@ module.exports = function init (options) {
         auth: require('./lib/auth'),
         uploader: require('./lib/upload'),
         tunnel: require('./lib/tunnel'),
-        message: require('./lib/message')
+        message: require('./lib/message'),
+        ci: require('./lib/ci/ocr')
     }
 }
