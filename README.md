@@ -176,4 +176,4 @@ router.post('/message', (ctx, next) {
 
 ## 示例 Demo
 
-腾讯云还提供了完整的示例代码，点击[这里]()下载。
+腾讯云还提供了完整的示例代码，点击[这里](https://github.com/tencentyun/wafer2-quickstart-nodejs)下载。
