@@ -25,7 +25,7 @@ const qcloud = require('wafer-node-sdk')(options)
   - `port` - 选填。MySQL 端口（默认：3306）
   - `char` - 选填。MySQL 编码
 - `cos` - 必填。腾讯云对象存储配置信息，用于上传模块使用。
-  - `region` - 必填。COS 的地域
+  - `region` - 必填。COS 的地域，具体查看：https://cloud.tencent.com/document/product/436/6224
   - `fileBucket` - 必填。COS 的 bucket 名
   - `uploadFolder` - 必填。COS 上传文件夹名
   - `maxSize` - 选填。COS 上传最大大小，默认 5M (单位：M)
