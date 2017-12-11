@@ -28,6 +28,7 @@ const { ERRORS } = require('./lib/constants')
  * @param {string} [必须] configs.cos.uploadFolder   cos 上传文件夹名
  * @param {string} [可选] configs.cos.maxSize        cos 上传最大大小，默认 5M (单位：M)
  * @param {string} [可选] configs.cos.field          cos 上传是 field 名称，默认为 'file'
+ * @param {array}  [可选] configs.cos.mimetypes      允许上传的 MIME 类型列表
 
  * @param {string} [必须] configs.serverHost         服务器 Host
 
@@ -66,6 +67,7 @@ module.exports = function init (options) {
         uploader: require('./lib/upload'),
         tunnel: require('./lib/tunnel'),
         message: require('./lib/message'),
-        ci: require('./lib/ci/ocr')
+        ci: require('./lib/ci/ocr'),
+        voice: require('./lib/voice')
     }
 }

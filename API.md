@@ -389,3 +389,79 @@ router.post('/message', (ctx, next) {
     ctx.body = 'success'
 })
 ```
+
+## 图像识别
+
+> **注意：**使用 .ci 相关接口需要开通万象优图，开通地址：https://console.cloud.tencent.com/ci
+
+#### qcloud.ci.idCardIdentify(imageUrls, fileBucket, idCardType)
+
+身份证识别接口
+
+**参数**
+
+- `imageUrls` - 要识别的图片地址，可以先使用上传接口上传获得地址，然后再用本接口识别（多个）
+- `fileBucket` - 万象优图 Bucket
+- `idCardType` - 身份证类别（0：带头像那面，1：国徽那面）
+
+**返回数据**
+
+参考万象优图[OCR-身份证识别](https://cloud.tencent.com/document/product/460/6895)
+
+**调用示例**
+
+```javascript
+const { ci } = require('../qcloud')
+
+module.exports = async ctx => {
+	const { data: identifyResult } = await ci.idCardIdentify(['https://mc.qcloudimg.com/image.jpg'], 'qcloudtest', 0)
+    ctx.state.data = identifyResult.result_list
+}
+```
+
+#### qcloud.ci.ocr(imageUrl, fileBucket)
+
+普通文字印刷体识别
+
+**参数**
+
+- `imageUrl` - 要识别的图片地址，可以先使用上传接口上传获得地址，然后再用本接口识别（单个）
+- `fileBucket` - 万象优图 Bucket
+
+**返回数据**
+
+参考万象优图[OCR-通用印刷体识别](https://cloud.tencent.com/document/product/460/9519)
+
+**调用示例**
+
+```javascript
+const { ci } = require('../qcloud')
+
+module.exports = async ctx => {
+	const { data: ocrResult } = await ci.ocr('https://mc.qcloudimg.com/image.jpg', 'qcloudtest')
+	ctx.state.data = ocrResult
+}
+```
+
+## 语音识别
+
+> **注意：**使用 .voice 相关接口需要开通腾讯云智能语音，开通地址：https://console.cloud.tencent.com/aai
+
+#### qcloud.voice.recognize(buffer, isEnd, voiceId, seq)
+
+语音识别接口
+
+**参数**
+
+- `buffer` - 语音分片的 buffer 数据
+- `isEnd` - 是否是最后一个分片
+- `voiceId` - 语音ID
+- `seq` - 分片序号
+
+**返回数据**
+
+`Promise` 对象
+
+**调用示例**
+
+参考[语音识别 Demo](https://github.com/tencentyun/wafer2-aai-nodejs)。
